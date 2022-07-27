@@ -2,6 +2,7 @@ package com.aceleracaojava.dronefeeder.service;
 
 import com.aceleracaojava.dronefeeder.dto.DroneDto;
 import com.aceleracaojava.dronefeeder.entity.Drone;
+import com.aceleracaojava.dronefeeder.entity.Entrega;
 import com.aceleracaojava.dronefeeder.repository.DroneRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,10 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
     // TODO Auto-generated method stub
     repository.deleteById(id);;
 
+  }
+
+  public List<Entrega> getEntregas(Long id) {
+    return repository.findById(id).get().getEntregas();
   }
 
 
