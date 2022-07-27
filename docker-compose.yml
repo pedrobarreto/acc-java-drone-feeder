@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=senha
+      - MYSQL_DATABASE=drone_feeder_db
+    ports:
+      - "3306:3306"
+  application:
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
