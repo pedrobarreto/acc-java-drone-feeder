@@ -1,4 +1,4 @@
-package com.aceleracaoJava.droneFeeder.entity;
+package com.aceleracaojava.dronefeeder.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
