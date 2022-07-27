@@ -2,6 +2,7 @@ package com.aceleracaojava.dronefeeder.controller;
 
 import com.aceleracaojava.dronefeeder.dto.DroneDto;
 import com.aceleracaojava.dronefeeder.entity.Drone;
+import com.aceleracaojava.dronefeeder.entity.Entrega;
 import com.aceleracaojava.dronefeeder.service.DroneService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class DroneController implements ControllerInterface<DroneDto, Drone> {
   public Drone create(@RequestBody DroneDto object) {
     // TODO Auto-generated method stub
     return service.create(object);
+  }
+
+  @GetMapping("/{id}/entregas")
+  public List<Entrega> getEntregas(@PathVariable Long id) {
+    return service.getEntregas(id);
   }
 
   @GetMapping("/{id}")
@@ -62,6 +68,7 @@ public class DroneController implements ControllerInterface<DroneDto, Drone> {
     service.delete(id);
 
   }
+
 
 
 }
