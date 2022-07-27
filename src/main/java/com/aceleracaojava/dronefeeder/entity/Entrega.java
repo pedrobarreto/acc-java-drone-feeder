@@ -1,5 +1,6 @@
 package com.aceleracaojava.dronefeeder.entity;
 
+import java.time.Instant;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,10 +21,10 @@ public class Entrega {
   private Long id;
 
   @Column
-  private String status;
+  private String status = "pendente";
 
   @Column
-  private String data;
+  private String data = Instant.now().toString();
 
   @Column
   private String arquivoVideo;
