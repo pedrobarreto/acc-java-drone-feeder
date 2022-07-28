@@ -124,6 +124,8 @@ local.properties
 # CDT- autotools
 .autotools
 
+target
+
 # Java annotation processor (APT)
 .factorypath
 
@@ -158,3 +160,8 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 
+!/.idea/
+!/.idea/
+!/.mvn/
+!/.mvn/
+!/.idea/
