@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class EntregaController implements ControllerInterface<EntregaDto, Entrega> {
 
   @Autowired
-  EntregaService service;
+  private EntregaService service;
 
   @PostMapping
   public Entrega create(@RequestBody EntregaDto object) {

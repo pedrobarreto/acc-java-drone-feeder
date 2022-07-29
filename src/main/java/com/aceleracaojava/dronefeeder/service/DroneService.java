@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class DroneService implements ServiceInterface<DroneDto, Drone> {
 
   @Autowired
-  DroneRepository repository;
+  private DroneRepository repository;
 
   @Override
   public Drone create(DroneDto object) {

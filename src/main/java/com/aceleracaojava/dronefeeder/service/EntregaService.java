@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 public class EntregaService implements ServiceInterface<EntregaDto, Entrega> {
 
   @Autowired
-  EntregaRepository repository;
+  private EntregaRepository repository;
 
   @Autowired
   DroneRepository droneRepo;

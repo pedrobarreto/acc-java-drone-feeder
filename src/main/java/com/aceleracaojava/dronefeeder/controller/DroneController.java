@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class DroneController implements ControllerInterface<DroneDto, Drone> {
 
   @Autowired
-  DroneService service;
+  private DroneService service;
 
   @PostMapping
   public Drone create(@RequestBody DroneDto object) {
