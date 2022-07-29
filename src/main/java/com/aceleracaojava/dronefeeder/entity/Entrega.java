@@ -1,6 +1,8 @@
 package com.aceleracaojava.dronefeeder.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.Instant;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+
 
 /**
  * Entity Entrega.
@@ -26,12 +31,17 @@ public class Entrega {
   @Column
   private String data = Instant.now().toString();
 
-  @Column
-  private String arquivoVideo;
-
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "drone_id")
   private Drone drone;
+
+  @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+  @JoinColumn(name = "video_id")
+  @JsonIgnore
+  private Video video;
+
+  @Column(name = "video_id", insertable = false, updatable = false)
+  private Long videoId;
 
   public Long getId() {
     return id;
@@ -57,13 +67,6 @@ public class Entrega {
     this.data = data;
   }
 
-  public String getArquivo_video() {
-    return arquivoVideo;
-  }
-
-  public void setArquivo_video(String arquivoVideo) {
-    this.arquivoVideo = arquivoVideo;
-  }
 
   public Drone getDrone() {
     return drone;
@@ -72,6 +75,24 @@ public class Entrega {
   public void setDrone(Drone drone) {
     this.drone = drone;
   }
+
+  public Video getVideo() {
+    return video;
+  }
+
+  public void setVideo(Video video) {
+    video.setEntrega(this);
+    this.video = video;
+  }
+
+  public Long getVideoId() {
+    return videoId;
+  }
+
+  public void setVideoId(Long videoId) {
+    this.videoId = videoId;
+  }
+
 
 
 }
