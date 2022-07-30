@@ -1,17 +1,37 @@
 version: "3.8"
 services:
+  application:
+    build: .
+    container_name: application
+    restart: on-failure
+    ports:
+      - 8080:8080
+    networks:
+      - drone-feeder-net
+    depends_on:
+      mysqldb:
+        condition: service_healthy
   mysqldb:
-    image: mysql:8.0
-    restart: always
+    image: mysql:8
+    container_name: mysqldb
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql
+    networks:
+      - drone-feeder-net
     environment:
       - MYSQL_ROOT_PASSWORD=senha
       - MYSQL_DATABASE=drone_feeder_db
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 10s
+      retries: 5
     ports:
-      - "3306:3306"
-  application:
-    build: .
-    restart: always
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mysqldb
+      - 3306:3306
+networks:
+  drone-feeder-net:
+volumes:
+  db:
+
+
+
