@@ -32,20 +32,41 @@ class EntregaControllerApplicationTests {
 
   @Autowired
   private EntregaRepository entregaRepository;
+  @Autowired
+  private DroneRepository droneRepository;
 
   @BeforeEach
   public void setup() {
+    droneRepository.deleteAll();
     entregaRepository.deleteAll();
   }
 
 
   @Test
   @Order(1)
-  @DisplayName("2 - Deve retornar um erro ao buscar uma entrega que não existe.")
+  @DisplayName("1 - Deve retornar um erro ao buscar uma entrega que não existe.")
   void buscaEntregaQueNaoExiste() throws Exception {
     mockMvc.perform(get("/entregas/99"))
         .andExpect(status().isNotFound())
         .andExpect(content().string("Nenhuma entrega encontrada com o id: 99"));
   }
+
+
+  @Test
+  @Order(2)
+  @DisplayName("2 - Deve deletar uma entrega com sucesso.")
+    void deletaEntregaComSucesso() throws Exception {
+
+    final Drone drone = new Drone();
+    drone.setNome("Drone 1");
+    droneRepository.save(drone);
+
+    final Entrega entrega = new Entrega();
+    entrega.setDrone(drone);
+    entregaRepository.save(entrega);
+
+        mockMvc.perform(delete("/entregas/" + entrega.getId()))
+            .andExpect(status().isOk());
+    }
 
 }
