@@ -69,4 +69,12 @@ class EntregaControllerApplicationTests {
             .andExpect(status().isOk());
     }
 
+    @Test
+    @Order(3)
+    @DisplayName("3 - Deve retornar lista Vazia quando não houver nenhuma entrega cadastrada.")
+    void listaTodasEntregas() throws Exception {
+      mockMvc.perform(get("/entregas"))
+          .andExpect(status().isOk())
+          .andExpect(content().string("[]"));
+    }
 }
