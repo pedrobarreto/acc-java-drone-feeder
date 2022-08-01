@@ -95,4 +95,13 @@ class DroneFeederApplicationTests {
               .content(new ObjectMapper().writeValueAsString(drone)))
           .andExpect(status().isOk());
     }
+
+    @Test
+    @Order(6)
+    @DisplayName("6 - Deve retornar lista Vazia quando não houver nenhum drone cadastrado.")
+    void listaTodosOsDrones() throws Exception {
+      mockMvc.perform(get("/drones"))
+          .andExpect(status().isOk())
+          .andExpect(content().string("[]"));
+    }
 }
