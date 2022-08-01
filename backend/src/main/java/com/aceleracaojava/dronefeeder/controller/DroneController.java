@@ -28,6 +28,7 @@ public class DroneController implements ControllerInterface<DroneDto, Drone> {
   @PostMapping
   public Drone create(@RequestBody DroneDto object) {
     // TODO Auto-generated method stub
+    System.out.println("DroneController.create()");
     return service.create(object);
   }
 

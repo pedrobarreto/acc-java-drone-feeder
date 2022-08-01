@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql-drone-feeder
+    environment:
+      - MYSQL_ROOT_USER=root
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=drone
+      - MYSQL_PASSWORD=drone
+    ports:
+      - "3307:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: phpmyadmin-drone-feeder
+    ports:
+      - "8082:80"
+
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_USERNAME: drone
+      SPRING_DATASOURCE_PASSWORD: drone
+
+  service:
+    image: drone-feeder
+    container_name: backend-drone-feeder
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8088:8088"
+    restart: always
+
+    depends_on:
+      - db
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql-drone-feeder:3306/drone?allowPublicKeyRetrieval=true&createDatabaseIfNotExist=true&useSSL=false&verifyServerCertificate=false&serverTimezone=UTC
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+      SERVER_PORT: 8088
+      LOGGING_LEVEL_ROOT: DEBUG
