@@ -2,6 +2,7 @@ package com.aceleracaojava.dronefeeder;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.aceleracaojava.dronefeeder.entity.Drone;
@@ -58,6 +59,17 @@ class DroneFeederApplicationTests {
         .andExpect(status().isNotFound())
         .andExpect(content().string("Nenhum drone encontrado com o id: 8"));
   }
+
+  @Test
+  @Order(3)
+  @DisplayName("3 - Deve deletar um drone com sucesso.")
+    void deletaDroneComSucesso() throws Exception {
+    Drone drone = new Drone();
+    drone.setNome("Drone");
+    droneRepository.save(drone);
+        mockMvc.perform(delete("/drones/" + drone.getId()))
+            .andExpect(status().isOk());
+    }
 
 
 }
