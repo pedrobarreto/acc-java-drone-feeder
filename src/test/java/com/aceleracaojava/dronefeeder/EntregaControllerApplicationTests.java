@@ -77,4 +77,21 @@ class EntregaControllerApplicationTests {
           .andExpect(status().isOk())
           .andExpect(content().string("[]"));
     }
+
+    @Test
+    @Order(4)
+    @DisplayName("4 - Deve Cadastrar uma entrega com sucesso")
+    void cadastraEntregaComSucesso() throws Exception {
+      final Drone drone = new Drone();
+      drone.setNome("Drone 1");
+      droneRepository.save(drone);
+
+      final HashMap<String, String> body = new HashMap<>();
+      body.put("droneId", drone.getId().toString());
+
+      mockMvc.perform(post("/entregas")
+          .contentType(MediaType.APPLICATION_JSON)
+          .content(new ObjectMapper().writeValueAsString(body)))
+          .andExpect(status().isOk());
+    }
 }
