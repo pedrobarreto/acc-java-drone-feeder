@@ -3,10 +3,12 @@ package com.aceleracaojava.dronefeeder;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.aceleracaojava.dronefeeder.entity.Drone;
 import com.aceleracaojava.dronefeeder.repository.DroneRepository;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
@@ -80,5 +82,17 @@ class DroneFeederApplicationTests {
             .andExpect(content().string("Nenhum drone encontrado com o id: 99"));
     }
 
-
+    @Test
+    @Order(5)
+    @DisplayName("5 - Deve alterar um drone com sucesso.")
+    void alteraDroneComSucesso() throws Exception {
+      Drone drone = new Drone();
+      drone.setNome("Drone");
+      droneRepository.save(drone);
+      drone.setNome("Drone Alterado");
+      mockMvc.perform(patch("/drones/" + drone.getId())
+              .contentType(MediaType.APPLICATION_JSON)
+              .content(new ObjectMapper().writeValueAsString(drone)))
+          .andExpect(status().isOk());
+    }
 }
