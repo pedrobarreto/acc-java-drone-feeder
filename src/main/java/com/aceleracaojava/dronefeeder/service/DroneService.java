@@ -3,10 +3,12 @@ package com.aceleracaojava.dronefeeder.service;
 import com.aceleracaojava.dronefeeder.dto.DroneDto;
 import com.aceleracaojava.dronefeeder.entity.Drone;
 import com.aceleracaojava.dronefeeder.entity.Entrega;
+import com.aceleracaojava.dronefeeder.exceptions.DroneNaoEncontradoException;
 import com.aceleracaojava.dronefeeder.repository.DroneRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 /**
  * DroneService.
@@ -19,7 +21,8 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
 
   @Override
   public Drone create(DroneDto object) {
-    // TODO Auto-generated method stub
+    Assert.notNull(object.getNome(), "Nome não pode estar em branco");
+    Assert.notNull(object.getStatus(), "Status não pode estar em branco");
     Drone newDrone = new Drone();
     newDrone.setNome(object.getNome());
     return repository.save(newDrone);
@@ -27,35 +30,50 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
 
   @Override
   public Drone findById(Long id) {
-    // TODO Auto-generated method stub
-    return repository.findById(id).get();
+   try {
+     return repository.findById(id).get();
+   } catch (Exception e) {
+    throw new DroneNaoEncontradoException(id.toString());
+   }
   }
 
   @Override
   public List<Drone> findAll() {
-    // TODO Auto-generated method stub
+    if(repository.findAll().isEmpty()) {
+      throw new DroneNaoEncontradoException("Tente novamente.");
+    }
     return repository.findAll();
   }
 
   @Override
   public void update(Long id, DroneDto object) {
-    Drone toUpdate = repository.findById(id).get();
-    toUpdate.setLatitude(object.getLatitude());
-    toUpdate.setLongitude(object.getLongitude());
-    toUpdate.setStatus(object.getStatus());
-    repository.save(toUpdate);
-
+    try {
+      Drone drone = repository.findById(id).get();
+      drone.setNome(object.getNome());
+      drone.setStatus(object.getStatus());
+      repository.save(drone);
+    } catch (Exception e) {
+      throw new DroneNaoEncontradoException(id.toString());
+    }
   }
 
   @Override
   public void delete(Long id) {
-    // TODO Auto-generated method stub
-    repository.deleteById(id);;
+    try {
+      repository.deleteById(id);
+    } catch (Exception e) {
+      throw new DroneNaoEncontradoException(id.toString());
+    }
 
   }
 
   public List<Entrega> getEntregas(Long id) {
-    return repository.findById(id).get().getEntregas();
+    try {
+      Drone drone = repository.findById(id).get();
+      return drone.getEntregas();
+    } catch (Exception e) {
+      throw new DroneNaoEncontradoException(id.toString());
+    }
   }
 
 
