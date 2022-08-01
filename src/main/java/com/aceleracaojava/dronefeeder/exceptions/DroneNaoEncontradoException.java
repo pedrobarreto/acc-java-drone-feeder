@@ -4,7 +4,7 @@ package com.aceleracaojava.dronefeeder.exceptions;
     private static final long serialVersionUID = 1L;
 
     /**
-     * Instantiates a new Serie nao encontrada exception.
+     * Instantiates a new Drone nao encontrado exception.
      *
      * @param message the message
      */
