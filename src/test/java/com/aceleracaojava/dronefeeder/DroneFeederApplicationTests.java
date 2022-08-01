@@ -5,8 +5,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import com.aceleracaojava.dronefeeder.entity.Drone;
+import com.aceleracaojava.dronefeeder.entity.Entrega;
 import com.aceleracaojava.dronefeeder.repository.DroneRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,6 +20,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
@@ -104,4 +107,18 @@ class DroneFeederApplicationTests {
           .andExpect(status().isOk())
           .andExpect(content().string("[]"));
     }
+
+    @Test
+    @Order(7)
+    @DisplayName("7 - Deve trazer as entregas de um drone buscado.")
+    void buscaEntregasDeDrone() throws Exception {
+      Drone drone = new Drone();
+      drone.setNome("Drone");
+      droneRepository.save(drone);
+
+      Entrega entrega = new Entrega();
+      entrega.setDrone(drone);
+      mockMvc.perform(get("/drones/" + drone.getId() + "/entregas"))
+      .andExpect(status().isOk());
+  }
 }
