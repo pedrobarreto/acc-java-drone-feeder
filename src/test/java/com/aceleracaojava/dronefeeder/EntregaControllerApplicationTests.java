@@ -69,4 +69,54 @@ class EntregaControllerApplicationTests {
             .andExpect(status().isOk());
     }
 
+    @Test
+    @Order(3)
+    @DisplayName("3 - Deve retornar lista Vazia quando não houver nenhuma entrega cadastrada.")
+    void listaTodasEntregas() throws Exception {
+      mockMvc.perform(get("/entregas"))
+          .andExpect(status().isOk())
+          .andExpect(content().string("[]"));
+    }
+
+    @Test
+    @Order(4)
+    @DisplayName("4 - Deve Cadastrar uma entrega com sucesso")
+    void cadastraEntregaComSucesso() throws Exception {
+      final Drone drone = new Drone();
+      drone.setNome("Drone 1");
+      droneRepository.save(drone);
+
+      final HashMap<String, String> body = new HashMap<>();
+      body.put("droneId", drone.getId().toString());
+
+      mockMvc.perform(post("/entregas")
+          .contentType(MediaType.APPLICATION_JSON)
+          .content(new ObjectMapper().writeValueAsString(body)))
+          .andExpect(status().isOk());
+    }
+
+  @Test
+  @Order(5)
+  @DisplayName("5 - Deve alterar uma entrega cadastrada")
+  void alterarEntrega() throws Exception {
+    final Drone drone = new Drone();
+    drone.setNome("Drone 1");
+    droneRepository.save(drone);
+
+    final Entrega entrega = new Entrega();
+    entrega.setDrone(drone);
+    entrega.setData("2022-09-27T21:59:04.777156677Z");
+    entrega.setStatus("Pendente");
+    entregaRepository.save(entrega);
+
+    final HashMap<String, String> body = new HashMap<>();
+    body.put("status", "Em transito");
+    body.put("data", "2022-07-27T21:59:04.777156677Z");
+
+    mockMvc.perform(patch("/entregas/" + entrega.getId())
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(new ObjectMapper().writeValueAsString(body)))
+            .andExpect(status().isOk());
+  }
+
 }

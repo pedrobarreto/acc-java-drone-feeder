@@ -49,9 +49,6 @@ public class EntregaService implements ServiceInterface<EntregaDto, Entrega> {
 
   @Override
   public List<Entrega> findAll() {
-    if(repository.findAll().isEmpty()) {
-      throw new EntregaNaoEncontradaException("Tente novamente.");
-    }
     return repository.findAll();
   }
 
