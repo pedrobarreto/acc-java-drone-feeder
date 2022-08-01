@@ -71,5 +71,14 @@ class DroneFeederApplicationTests {
             .andExpect(status().isOk());
     }
 
+    @Test
+    @Order(4)
+    @DisplayName("4 - Deve retornar um erro ao deletar um drone que não existe.")
+    void deletaDroneQueNaoExiste() throws Exception {
+        mockMvc.perform(delete("/drones/99"))
+            .andExpect(status().isNotFound())
+            .andExpect(content().string("Nenhum drone encontrado com o id: 99"));
+    }
+
 
 }
