@@ -22,7 +22,6 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
   @Override
   public Drone create(DroneDto object) {
     Assert.notNull(object.getNome(), "Nome não pode estar em branco");
-    Assert.notNull(object.getStatus(), "Status não pode estar em branco");
     Drone newDrone = new Drone();
     newDrone.setNome(object.getNome());
     return repository.save(newDrone);
@@ -39,9 +38,6 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
 
   @Override
   public List<Drone> findAll() {
-    if(repository.findAll().isEmpty()) {
-      throw new DroneNaoEncontradoException("Tente novamente.");
-    }
     return repository.findAll();
   }
 
