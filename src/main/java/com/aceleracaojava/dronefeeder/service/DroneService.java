@@ -45,8 +45,9 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
   public void update(Long id, DroneDto object) {
     try {
       Drone drone = repository.findById(id).get();
-      drone.setNome(object.getNome());
       drone.setStatus(object.getStatus());
+      drone.setLatitude(object.getLatitude());
+      drone.setLongitude(object.getLongitude());
       repository.save(drone);
     } catch (Exception e) {
       throw new DroneNaoEncontradoException(id.toString());
