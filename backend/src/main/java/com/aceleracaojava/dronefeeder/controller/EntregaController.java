@@ -5,6 +5,7 @@ import com.aceleracaojava.dronefeeder.entity.Entrega;
 import com.aceleracaojava.dronefeeder.service.EntregaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * EntregaController.
  */
-
+@CrossOrigin
 @RestController
 @RequestMapping("/entregas")
 public class EntregaController implements ControllerInterface<EntregaDto, Entrega> {
