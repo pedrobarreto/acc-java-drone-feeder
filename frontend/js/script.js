@@ -60,6 +60,8 @@ const verVideo = (videoId) => {
   <video controls>
       <source src="http://localhost:8080/videos/${videoId}" type="video/mp4">
   </video>
+  <br/>
+  <a class="download-video" href="http://localhost:8080/videos/${videoId}">Baixar Vídeo</a>
 `)
   video.show();
 }
