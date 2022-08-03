@@ -76,7 +76,7 @@ Primeiramente, ative o MySQL:
 sudo service mysql start
 ```
 
-Após altere o arquivo application.properties que está localizado no seguinte caminho acc-java-drone-feeder/backend/src/main/resources/application.properties. Nele você deve alterar com o usuário e senha do seu MySQL nas seguintes linhas:
+Após altere o arquivo application.properties que está localizado no seguinte caminho acc-java-drone-feeder/backend/src/main/resources/application.properties. Nele você deve alterar a 2ª(username) e a 3ª(password) linha com o usuário e senha do seu MySQL:
 ```javascript
 spring.datasource.username=username
 spring.datasource.password=password
