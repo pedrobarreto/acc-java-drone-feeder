@@ -5,6 +5,8 @@ import com.aceleracaojava.dronefeeder.entity.Entrega;
 import com.aceleracaojava.dronefeeder.service.EntregaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,9 +29,9 @@ public class EntregaController implements ControllerInterface<EntregaDto, Entreg
   EntregaService service;
 
   @PostMapping
-  public Entrega create(@RequestBody EntregaDto object) {
+  public ResponseEntity<Entrega> create(@RequestBody EntregaDto object) {
     // TODO Auto-generated method stub
-    return service.create(object);
+    return ResponseEntity.status(HttpStatus.CREATED).body(service.create(object));
   }
 
   @GetMapping("/{id}")
@@ -48,9 +50,10 @@ public class EntregaController implements ControllerInterface<EntregaDto, Entreg
    * Método update.
    */
   @PatchMapping("/{id}")
-  public void update(@PathVariable Long id, @RequestBody EntregaDto object) {
+  public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody EntregaDto object) {
     // TODO Auto-generated method stub
     service.update(id, object);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
   }
 
@@ -59,9 +62,10 @@ public class EntregaController implements ControllerInterface<EntregaDto, Entreg
    */
 
   @DeleteMapping("/{id}")
-  public void delete(@PathVariable Long id) {
+  public ResponseEntity<Object> delete(@PathVariable Long id) {
     // TODO Auto-generated method stub
     service.delete(id);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 
   }
 
