@@ -66,7 +66,7 @@ class EntregaControllerApplicationTests {
     entregaRepository.save(entrega);
 
         mockMvc.perform(delete("/entregas/" + entrega.getId()))
-            .andExpect(status().isOk());
+            .andExpect(status().isNoContent());
     }
 
     @Test
@@ -92,7 +92,7 @@ class EntregaControllerApplicationTests {
       mockMvc.perform(post("/entregas")
           .contentType(MediaType.APPLICATION_JSON)
           .content(new ObjectMapper().writeValueAsString(body)))
-          .andExpect(status().isOk());
+          .andExpect(status().isCreated());
     }
 
   @Test
@@ -116,7 +116,7 @@ class EntregaControllerApplicationTests {
     mockMvc.perform(patch("/entregas/" + entrega.getId())
             .contentType(MediaType.APPLICATION_JSON)
             .content(new ObjectMapper().writeValueAsString(body)))
-            .andExpect(status().isOk());
+            .andExpect(status().isNoContent());
   }
 
 }
