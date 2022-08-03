@@ -131,4 +131,41 @@ body
     "droneId": 1
 }
 ```
+
 ![CREATE_ENTREGA](/imagens/POST_entregas.png)
+
+### Digite o comando abaixo para visualizar todas as entregas através da requisição GET
+```javascript
+http://localhost:8080/entregas
+```
+
+![GET_ENTREGAS](/imagens/GET_entregas.png)
+
+### Digite o comando abaixo para visualizar os dados de uma entrega através da requisição GET
+```javascript
+http://localhost:8080/entregas/1
+```
+
+![GET_ENTREGA](/imagens/GET_entregas-id.png)
+
+### Digite os comandos abaixo para atualizar os dados de uma entrega através da requisição PATCH
+```javascript
+http://localhost:8080/entregas/1
+```
+
+body
+```json
+{
+    "data": "2022-08-03T19:00:48.917243Z",
+    "status": "Em trânsito"
+}
+```
+
+![PATCH_ENTREGA](/imagens/PATCH_entregas-id.png)
+
+### Digite os comandos abaixo para deletar os dados de uma entrega através da requisição DELETE
+```javascript
+http://localhost:8080/entregas/3
+```
+
+![DELETE_ENTREGA](/imagens/DELETE_entregas-3.png)
