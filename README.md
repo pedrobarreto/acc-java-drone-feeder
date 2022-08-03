@@ -35,11 +35,11 @@ Para conectar o banco de dados é essencial criar um arquivo .env com os dados c
 
 ```javascript
 DB_USER=user
-DB_ROOT_PASSWORD=password
-DB_LOCAL_PORT=localPort
-DB_DOCKER_PORT=dockerPort
-APP_LOCAL_PORT=localPort
-APP_DOCKER_PORT=dockerPort
+DB_ROOT_PASSWORD=senha
+DB_LOCAL_PORT=3306
+DB_DOCKER_PORT=3306
+APP_LOCAL_PORT=8080
+APP_DOCKER_PORT=8080
 ```
 
 ---
@@ -67,6 +67,24 @@ Para paralisar e remover todos os contêineres e seus componentes como rede, ima
 docker-compose down
 ```
 ---
+
+## Utilizando o Spring-boot sem o Docker
+
+Primeiramente, ative o MySQL:
+```javascript
+sudo service mysql start
+```
+
+Após altere o arquivo application.properties que está localizado no seguinte caminho acc-java-drone-feeder/backend/src/main/resources/application.properties. Nele você deve alterar com o usuário e senha do seu MySQL nas seguintes linhas:
+```javascript
+spring.datasource.username=username
+spring.datasource.password=password
+```
+
+Rodar o Spring-Boot na pasta backend com o comando:
+```javascript
+mvn spring-boot:run
+```
 
 ## Exemplos de uso da API em programas de requisições de HTTP (Ex.: Postman, Insomnia)
 </br>
@@ -139,7 +157,7 @@ body
 http://localhost:8080/drones/1/entregas
 ```
 
-![GET_ENTREGA_DRONE](GET_drones-id-entregas.png)
+![GET_ENTREGA_DRONE](/imagens/GET_drones-id-entregas.png)
 
 ### Digite o comando abaixo para visualizar todas as entregas através da requisição GET
 ```javascript
