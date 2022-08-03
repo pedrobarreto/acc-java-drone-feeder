@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d8e20503-7c74-4f79-857d-279219e1d94a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.checkstyle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/DroneFeederApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/controller/ControllerInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/controller/DroneController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/controller/EntregaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/controller/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/controller/VideoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/dto/DroneDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/dto/EntregaDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/dto/VideoDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/entity/Drone.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/entity/Entrega.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/entity/Video.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/exceptions/DroneNaoEncontradoException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/exceptions/EntregaNaoEncontradaException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/exceptions/GlobalExceptionController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/repository/DroneRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/repository/EntregaRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/repository/VideoRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/service/DroneService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/service/EntregaService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/service/ServiceInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/aceleracaojava/dronefeeder/service/VideoService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aceleracaojava/dronefeeder/DroneFeederApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aceleracaojava/dronefeeder/EntregaControllerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aceleracaojava/dronefeeder/HelloControllerApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/aceleracaojava/dronefeeder/VideoControllerApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2CqTAcWh2aml4KlPSKJ8ac2VSWe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8e20503-7c74-4f79-857d-279219e1d94a" name="Changes" comment="" />
+      <created>1659528976173</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659528976173</updated>
+      <workItem from="1659528978761" duration="23000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
