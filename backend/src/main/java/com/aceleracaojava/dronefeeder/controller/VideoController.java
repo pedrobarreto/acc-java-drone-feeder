@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -35,10 +36,10 @@ public class VideoController {
    * Método save.
    */
   @PostMapping
-  public String save(@RequestParam("video") MultipartFile video,
+  public ResponseEntity<String> save(@RequestParam("video") MultipartFile video,
       @RequestParam("entregaId") Long entregaId) throws IOException {
     service.save(video, entregaId);
-    return "Video salvo com sucesso";
+    return ResponseEntity.status(HttpStatus.CREATED).body("Video salvo com sucesso");
 
   }
 

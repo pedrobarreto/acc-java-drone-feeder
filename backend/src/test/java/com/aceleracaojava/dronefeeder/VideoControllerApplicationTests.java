@@ -7,7 +7,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.aceleracaojava.dronefeeder.entity.Drone;
 import com.aceleracaojava.dronefeeder.entity.Entrega;
-import com.aceleracaojava.dronefeeder.entity.Video;
 import com.aceleracaojava.dronefeeder.repository.DroneRepository;
 import com.aceleracaojava.dronefeeder.repository.EntregaRepository;
 import com.aceleracaojava.dronefeeder.repository.VideoRepository;
@@ -72,7 +71,7 @@ class VideoControllerApplicationTests {
 
     mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
     mockMvc.perform(multipart("/videos").file(file).param("entregaId", entrega.getId().toString()))
-        .andExpect(status().isOk())
+        .andExpect(status().isCreated())
         .andExpect(content().string("Video salvo com sucesso"));
   }
 

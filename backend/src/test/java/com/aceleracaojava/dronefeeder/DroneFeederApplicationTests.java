@@ -52,7 +52,7 @@ class DroneFeederApplicationTests {
     mockMvc.perform(post("/drones")
         .contentType(MediaType.APPLICATION_JSON)
         .content(new ObjectMapper().writeValueAsString(drone)))
-        .andExpect(content().contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON)).andExpect(status().isCreated());
 
   }
 
@@ -73,7 +73,7 @@ class DroneFeederApplicationTests {
     drone.setNome("Drone");
     droneRepository.save(drone);
         mockMvc.perform(delete("/drones/" + drone.getId()))
-            .andExpect(status().isOk());
+            .andExpect(status().isNoContent());
     }
 
     @Test
@@ -96,7 +96,7 @@ class DroneFeederApplicationTests {
       mockMvc.perform(patch("/drones/" + drone.getId())
               .contentType(MediaType.APPLICATION_JSON)
               .content(new ObjectMapper().writeValueAsString(drone)))
-          .andExpect(status().isOk());
+          .andExpect(status().isNoContent());
     }
 
     @Test
