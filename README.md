@@ -90,3 +90,45 @@ http://localhost:8080/drones
 ```
 
 ![GET_DRONES](/imagens/GET_drones.png)
+
+### Digite o comando abaixo para visualizar os dados de um drone pelo id através da requisição GET
+```javascript
+http://localhost:8080/drones/1
+```
+
+![GET_DRONE](/imagens/GET_drones-id.png)
+
+### Digite os comandos abaixo para atualizar os dados de um drone através da requisição PATCH
+```javascript
+http://localhost:8080/drones/1
+```
+
+body
+```json
+{
+    "status": "ativado",
+    "latitude": -23.3348,
+    "longitude": -46.8269
+}
+```
+![PATCH_DRONE](/imagens/PATCH_drones-id.png)
+
+### Digite os comandos abaixo para deletar os dados de um drone através da requisição DELETE
+```javascript
+http://localhost:8080/drones/4
+```
+
+![DELETE_DRONE](/imagens/DELETE_drone.png)
+
+### Digite os comandos abaixo para adicionar uma entrega para um drone através da requisição POST
+```javascript
+http://localhost:8080/entregas
+```
+
+body
+```json
+{
+    "droneId": 1
+}
+```
+![CREATE_ENTREGA](/imagens/POST_entregas.png)
