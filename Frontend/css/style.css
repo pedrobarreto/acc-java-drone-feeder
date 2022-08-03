@@ -1,0 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0dad87;
+  border-bottom: 2px solid #000;
+  height: 100px;
+}
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.container-grid {
+  display: flex;
+  max-width: 800px;
+  flex-basis: 90%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.drone-card {
+  font-family: 'Roboto Flex', sans-serif;
+  border: 2px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  height: auto;
+  margin: 5px;
+  width: 300px;
+  padding: 20px;
+  background-color: #38c5a4;
+}
+
+.pedido-card {
+  font-family: 'Roboto Flex', sans-serif;
+  border: 2px solid #000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  height: auto;
+  margin: 5px;
+  width: 300px;
+  padding: 20px;
+  background-color: #1ccaff;
+}
+
+* {
+  box-sizing: border-box;
+}
+iframe {
+  display: block;
+  width: 90%;
+  max-width: 60rem;
+  height: 25em;
+  margin: 2rem auto;
+  border: 1px solid black;
+}
+h1, p {
+  text-align: center;
+  width: 90%;
+  max-width: 60rem;
+  margin: .5rem auto;
+  text-align: left;
+}
+
+pre {
+  text-align: center;
+  width: 90%;
+  max-width: 60rem;
+  margin: 0 auto;
+  background: #eee;
+  padding: 2rem;
+  border: 1px solid #000;
+}
