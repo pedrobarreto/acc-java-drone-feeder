@@ -134,6 +134,13 @@ body
 
 ![CREATE_ENTREGA](/imagens/POST_entregas.png)
 
+### Digite o comando abaixo para visualizar as entregas realizadas pelo drone através da requisição GET
+```javascript
+http://localhost:8080/drones/1/entregas
+```
+
+![GET_ENTREGA_DRONE](GET_drones-id-entregas.png)
+
 ### Digite o comando abaixo para visualizar todas as entregas através da requisição GET
 ```javascript
 http://localhost:8080/entregas
@@ -169,3 +176,23 @@ http://localhost:8080/entregas/3
 ```
 
 ![DELETE_ENTREGA](/imagens/DELETE_entregas-3.png)
+
+### Digite os comandos abaixo para adicionar um vídeo da entrega para o banco de dados através da requisição POST
+```javascript
+http://localhost:8080/videos
+```
+
+body
+```javascript
+video: drone.mp4
+entregaId: 2
+```
+
+![POST_VIDEO](/imagens/POST_videos.png)
+
+### Digite o comando abaixo para visualizar todos os videos cadastrados no banco de dados através da requisição GET
+```javascript
+http://localhost:8080/videos
+```
+
+![GET_VIDEOS](/imagens/GET_videos.png)
