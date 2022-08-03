@@ -66,3 +66,27 @@ Para paralisar e remover todos os contêineres e seus componentes como rede, ima
 ```javascript
 docker-compose down
 ```
+---
+
+## Exemplos de uso da API em programas de requisições de HTTP (Ex.: Postman, Insomnia)
+</br>
+
+### Digite os comandos abaixo para adicionar um drone através da requisição POST
+```javascript
+http://localhost:8080/drones
+```
+
+body
+```json
+{
+    "nome": "DF-4"
+}
+```
+![CREATE_DRONE](/imagens/POST_drones.png)
+
+### Digite o comando abaixo para visualizar todos os drones através da requisição GET
+```javascript
+http://localhost:8080/drones
+```
+
+![GET_DRONES](/imagens/GET_drones.png)
