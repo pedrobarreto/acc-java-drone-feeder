@@ -47,6 +47,7 @@ APP_DOCKER_PORT=8080
 ## Comandos para utilizar o Docker
 
 Para criar e iniciar os contêineres:
+</br>
 Obs.: Com o comando abaixo o docker fica rodando no terminal.
 ```javascript
 docker-compose up
