@@ -23,7 +23,7 @@ git clone git@github.com:pedrobarreto/acc-java-drone-feeder.git
 
 2. Acesse o diretório do projeto e depois utilize o comando **mvn install** para instalar todas as dependências necessárias:
 ```javascript
-  cd acc-java-drone-feeder
+  cd acc-java-drone-feeder/backend
   mvn install
 ```
 
