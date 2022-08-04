@@ -29,12 +29,13 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
 
   @Override
   public Drone findById(Long id) {
-   try {
-     return repository.findById(id).get();
-   } catch (Exception e) {
-    throw new DroneNaoEncontradoException(id.toString());
-   }
+    try {
+      return repository.findById(id).get();
+    } catch (Exception e) {
+      throw new DroneNaoEncontradoException(id.toString());
+    }
   }
+
 
   @Override
   public List<Drone> findAll() {
@@ -64,6 +65,9 @@ public class DroneService implements ServiceInterface<DroneDto, Drone> {
 
   }
 
+  /**
+   * getEntregas.
+   */
   public List<Entrega> getEntregas(Long id) {
     try {
       Drone drone = repository.findById(id).get();
