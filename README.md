@@ -1,4 +1,8 @@
-# Boas vindas ao repositório do Drone Feeder!
+
+  <img src="./frontend/img/drone.png" width="60" alt="Drone Logo" align="right">
+
+
+# Boas vindas ao repositório do Drone Feeder! 
 
 ---
 
