@@ -1,7 +1,6 @@
 package com.aceleracaojava.dronefeeder.controller;
 
 import java.util.List;
-
 import org.springframework.http.ResponseEntity;
 
 /**

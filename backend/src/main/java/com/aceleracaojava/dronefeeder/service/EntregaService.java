@@ -32,11 +32,12 @@ public class EntregaService implements ServiceInterface<EntregaDto, Entrega> {
       Entrega newEntrega = new Entrega();
       drone.addEntrega(newEntrega);
       Drone saved = droneRepo.save(drone);
-    return saved.getEntregas().get(saved.getEntregas().size() - 1);
+      return saved.getEntregas().get(saved.getEntregas().size() - 1);
     } catch (Exception e) {
       throw new DroneNaoEncontradoException(object.getDroneId().toString());
     }
   }
+
 
   @Override
   public Entrega findById(Long id) {
