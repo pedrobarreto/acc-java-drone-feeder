@@ -8,7 +8,7 @@
 
 ## Descrição do projeto
 
-Nesse projeto contruímos o back-end com Java utilizando Spring-boot que coleta informações de drones e adiciona no banco de dados MySQL.
+Nesse projeto construímos o back-end com Java utilizando Spring-boot que coleta informações de drones e adiciona no banco de dados MySQL.
 
 Nele é possível coletar dados dos drones, das entregas realizadas pelos drones e o vídeo realizado durante essa entrega.
 
