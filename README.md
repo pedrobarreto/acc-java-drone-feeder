@@ -35,7 +35,7 @@ git clone git@github.com:pedrobarreto/acc-java-drone-feeder.git
 
 ## Conexão com o Banco
 
-Para conectar o banco de dados é essencial criar um arquivo .env com os dados contidos no arquivo .env.example e alterar as variavéis de ambiente abaixo:
+Para conectar o banco de dados é essencial criar um arquivo .env com os dados contidos no arquivo .env.example e alterar as variáveis de ambiente abaixo:
 
 ```javascript
 DB_USER=user
